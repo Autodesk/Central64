@@ -25,7 +25,7 @@ Bounded Jump Point Search, Canonical A*, and the general concept of canonical pa
 
 ### 4.4 Mixed A* Search
 
-Mixed A* partitions the grid into square blocks, and searches exhaustively within the current block before progressing to the next. In essence, the method uses the non-heuristic Dijkstra Search within blocks and the heuristic A* Search between blocks. Mixed A* is similar to the Block A* method by [Yap et al. (2011)](https://www.aaai.org/ocs/index.php/AAAI/AAAI11/paper/view/3449), except that Block A* precalculates distances through each block whereas Mixed A* performs the entire search on the fly.
+Mixed A* partitions the grid into square blocks, and searches exhaustively within the current block before progressing to the next. In essence, the method uses the non-heuristic Dijkstra Search within blocks and the heuristic A* Search between blocks. Mixed A* is similar to the Block A* method by [Yap et al. (2011)](https://ojs.aaai.org/index.php/AAAI/article/view/7813), except that Block A* precalculates distances through each block whereas Mixed A* performs the entire search on the fly.
 
 ### 4.5 Mixed Jump Point Search
 

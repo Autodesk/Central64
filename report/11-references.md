@@ -38,6 +38,6 @@
 
 **Whitmer, N. (2013)**. [A Visual Explanation of Jump Point Search](https://zerowidth.com/2013/a-visual-explanation-of-jump-point-search.html). Online article from [*zerowidth positive lookahead*](https://zerowidth.com/).
 
-**Yap, P., Burch, N., Holte, R., & Schaeffer, J. (2011).** [Block A*: Database-Driven Search with Applications in Any-Angle Path-Planning](https://www.aaai.org/ocs/index.php/AAAI/AAAI11/paper/view/3449). In *Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)*, pp. 120-125.
+**Yap, P., Burch, N., Holte, R., & Schaeffer, J. (2011).** [Block A*: Database-Driven Search with Applications in Any-Angle Path-Planning](https://ojs.aaai.org/index.php/AAAI/article/view/7813). In *Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)*, pp. 120-125.
 
 | [Prev](10-findings-and-recommendations.md) | [Next](12-appendix.md) |
