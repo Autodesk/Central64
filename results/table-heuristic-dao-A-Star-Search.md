@@ -1,0 +1,22 @@
+|Neighborhood|Search Method|Smoothing|Path Length|Runtime|
+|:----------:|:-----------:|:-------:|:--------:|:-----:|
+|4|Regular A* Search|Greedy|193.365718|534.387950|
+|8|Regular A* Search|Greedy|187.589861|826.688916|
+|16|Regular A* Search|Greedy|186.271375|1626.100770|
+|32|Regular A* Search|Greedy|185.984016|2881.977007|
+|64|Regular A* Search|Greedy|185.879095|4973.799355|
+|4|Central A* Search|Greedy|186.671385|1217.876808|
+|8|Central A* Search|Greedy|185.986902|1197.944923|
+|16|Central A* Search|Greedy|185.847056|1989.447834|
+|32|Central A* Search|Greedy|185.807597|3275.682891|
+|64|Central A* Search|Greedy|185.792561|5494.900880|
+|4|Regular A* Search|Tentpole|191.092794|546.832701|
+|8|Regular A* Search|Tentpole|186.628553|847.940695|
+|16|Regular A* Search|Tentpole|185.959140|1636.882757|
+|32|Regular A* Search|Tentpole|185.840904|2878.747123|
+|64|Regular A* Search|Tentpole|185.801373|4967.486637|
+|4|Central A* Search|Tentpole|185.974571|1293.145968|
+|8|Central A* Search|Tentpole|185.819156|1247.897377|
+|16|Central A* Search|Tentpole|185.793087|2008.612702|
+|32|Central A* Search|Tentpole|185.784785|3302.039216|
+|64|Central A* Search|Tentpole|185.779853|5551.712036|

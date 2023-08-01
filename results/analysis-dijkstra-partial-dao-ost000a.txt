@@ -1,0 +1,128 @@
+Results for ost000a.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Regular Dijkstra Search with No Smoothing
+Mean Path Length = 445.258572
+Mean Runtime (us) = 571.576558
+Valid Paths = 4846
+Total Scenarios = 4846
+
+Results for ost000a.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Regular Dijkstra Search with Greedy Smoothing
+Mean Path Length = 432.898263
+Mean Runtime (us) = 584.648783
+Valid Paths = 4846
+Total Scenarios = 4846
+
+Results for ost000a.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Dijkstra Search with Greedy Smoothing
+Mean Path Length = 426.679544
+Mean Runtime (us) = 1510.310565
+Valid Paths = 4846
+Total Scenarios = 4846
+
+Results for ost000a.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Regular Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 429.909935
+Mean Runtime (us) = 595.458316
+Valid Paths = 4846
+Total Scenarios = 4846
+
+Results for ost000a.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 426.302364
+Mean Runtime (us) = 1535.066034
+Valid Paths = 4846
+Total Scenarios = 4846
+
+Results for ost000a.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Mixed Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 426.302364
+Mean Runtime (us) = 1906.438093
+Valid Paths = 4846
+Total Scenarios = 4846
+
+Results for ost000a.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Canonical Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 426.302364
+Mean Runtime (us) = 1169.368964
+Valid Paths = 4846
+Total Scenarios = 4846
+
+Results for ost000a.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Bounded Canonical Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 426.302364
+Mean Runtime (us) = 1191.081511
+Valid Paths = 4846
+Total Scenarios = 4846
+
+Results for ost000a.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Mixed Canonical Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 426.302364
+Mean Runtime (us) = 1259.895584
+Valid Paths = 4846
+Total Scenarios = 4846
+
+Results for ost000a.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Regular Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 427.229797
+Mean Runtime (us) = 1113.834915
+Valid Paths = 4846
+Total Scenarios = 4846
+
+Results for ost000a.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 426.214785
+Mean Runtime (us) = 1814.761659
+Valid Paths = 4846
+Total Scenarios = 4846
+
+Results for ost000a.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Mixed Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 426.214785
+Mean Runtime (us) = 2613.059843
+Valid Paths = 4846
+Total Scenarios = 4846
+
+Results for ost000a.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Canonical Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 426.214785
+Mean Runtime (us) = 1098.868964
+Valid Paths = 4846
+Total Scenarios = 4846
+
+Results for ost000a.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Bounded Canonical Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 426.214785
+Mean Runtime (us) = 1124.050144
+Valid Paths = 4846
+Total Scenarios = 4846
+
+Results for ost000a.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Mixed Canonical Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 426.214785
+Mean Runtime (us) = 1230.197276
+Valid Paths = 4846
+Total Scenarios = 4846
+
+Results for ost000a.map
+64-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 426.168046
+Mean Runtime (us) = 4595.616591
+Valid Paths = 4846
+Total Scenarios = 4846
+

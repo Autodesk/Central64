@@ -1,0 +1,128 @@
+Results for arena.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Regular Dijkstra Search with No Smoothing
+Mean Path Length = 25.159443
+Mean Runtime (us) = 9.312000
+Valid Paths = 250
+Total Scenarios = 250
+
+Results for arena.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Regular Dijkstra Search with Greedy Smoothing
+Mean Path Length = 24.156315
+Mean Runtime (us) = 9.376000
+Valid Paths = 250
+Total Scenarios = 250
+
+Results for arena.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Dijkstra Search with Greedy Smoothing
+Mean Path Length = 23.918409
+Mean Runtime (us) = 38.264000
+Valid Paths = 250
+Total Scenarios = 250
+
+Results for arena.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Regular Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 24.044823
+Mean Runtime (us) = 9.648000
+Valid Paths = 250
+Total Scenarios = 250
+
+Results for arena.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 23.907081
+Mean Runtime (us) = 37.000000
+Valid Paths = 250
+Total Scenarios = 250
+
+Results for arena.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Mixed Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 23.907081
+Mean Runtime (us) = 41.624000
+Valid Paths = 250
+Total Scenarios = 250
+
+Results for arena.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Canonical Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 23.907081
+Mean Runtime (us) = 31.920000
+Valid Paths = 250
+Total Scenarios = 250
+
+Results for arena.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Bounded Canonical Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 23.907081
+Mean Runtime (us) = 31.764000
+Valid Paths = 250
+Total Scenarios = 250
+
+Results for arena.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Mixed Canonical Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 23.907081
+Mean Runtime (us) = 34.696000
+Valid Paths = 250
+Total Scenarios = 250
+
+Results for arena.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Regular Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 23.924057
+Mean Runtime (us) = 16.924000
+Valid Paths = 250
+Total Scenarios = 250
+
+Results for arena.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 23.909450
+Mean Runtime (us) = 35.420000
+Valid Paths = 250
+Total Scenarios = 250
+
+Results for arena.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Mixed Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 23.909450
+Mean Runtime (us) = 48.628000
+Valid Paths = 250
+Total Scenarios = 250
+
+Results for arena.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Canonical Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 23.909450
+Mean Runtime (us) = 23.896000
+Valid Paths = 250
+Total Scenarios = 250
+
+Results for arena.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Bounded Canonical Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 23.909450
+Mean Runtime (us) = 25.016000
+Valid Paths = 250
+Total Scenarios = 250
+
+Results for arena.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Mixed Canonical Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 23.909450
+Mean Runtime (us) = 25.872000
+Valid Paths = 250
+Total Scenarios = 250
+
+Results for arena.map
+64-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Dijkstra Search with Tentpole Smoothing
+Mean Path Length = 23.906082
+Mean Runtime (us) = 72.596000
+Valid Paths = 250
+Total Scenarios = 250
+

@@ -1,0 +1,128 @@
+Results for ost000a.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Regular A* Search with No Smoothing
+Mean Path Length = 496.492622
+Mean Runtime (us) = 3900.303175
+Valid Paths = 2520
+Total Scenarios = 2520
+
+Results for ost000a.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Regular A* Search with Greedy Smoothing
+Mean Path Length = 479.425808
+Mean Runtime (us) = 3858.729365
+Valid Paths = 2520
+Total Scenarios = 2520
+
+Results for ost000a.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central A* Search with Greedy Smoothing
+Mean Path Length = 475.656581
+Mean Runtime (us) = 5009.900000
+Valid Paths = 2520
+Total Scenarios = 2520
+
+Results for ost000a.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Regular A* Search with Tentpole Smoothing
+Mean Path Length = 477.532797
+Mean Runtime (us) = 3857.946032
+Valid Paths = 2520
+Total Scenarios = 2520
+
+Results for ost000a.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central A* Search with Tentpole Smoothing
+Mean Path Length = 475.244762
+Mean Runtime (us) = 5013.376587
+Valid Paths = 2520
+Total Scenarios = 2520
+
+Results for ost000a.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Mixed A* Search with Tentpole Smoothing
+Mean Path Length = 475.244762
+Mean Runtime (us) = 6343.856349
+Valid Paths = 2520
+Total Scenarios = 2520
+
+Results for ost000a.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Jump Point Search with Tentpole Smoothing
+Mean Path Length = 475.244762
+Mean Runtime (us) = 2601.630556
+Valid Paths = 2520
+Total Scenarios = 2520
+
+Results for ost000a.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Bounded Jump Point Search with Tentpole Smoothing
+Mean Path Length = 475.244762
+Mean Runtime (us) = 2538.805556
+Valid Paths = 2520
+Total Scenarios = 2520
+
+Results for ost000a.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Mixed Jump Point Search with Tentpole Smoothing
+Mean Path Length = 475.244762
+Mean Runtime (us) = 2876.060317
+Valid Paths = 2520
+Total Scenarios = 2520
+
+Results for ost000a.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Regular A* Search with Tentpole Smoothing
+Mean Path Length = 475.912832
+Mean Runtime (us) = 7800.476984
+Valid Paths = 2520
+Total Scenarios = 2520
+
+Results for ost000a.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central A* Search with Tentpole Smoothing
+Mean Path Length = 475.174717
+Mean Runtime (us) = 8646.907937
+Valid Paths = 2520
+Total Scenarios = 2520
+
+Results for ost000a.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Mixed A* Search with Tentpole Smoothing
+Mean Path Length = 475.174717
+Mean Runtime (us) = 12632.915476
+Valid Paths = 2520
+Total Scenarios = 2520
+
+Results for ost000a.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Jump Point Search with Tentpole Smoothing
+Mean Path Length = 475.174717
+Mean Runtime (us) = 3744.177778
+Valid Paths = 2520
+Total Scenarios = 2520
+
+Results for ost000a.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Bounded Jump Point Search with Tentpole Smoothing
+Mean Path Length = 475.174717
+Mean Runtime (us) = 3348.657540
+Valid Paths = 2520
+Total Scenarios = 2520
+
+Results for ost000a.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Mixed Jump Point Search with Tentpole Smoothing
+Mean Path Length = 475.174717
+Mean Runtime (us) = 4363.902778
+Valid Paths = 2520
+Total Scenarios = 2520
+
+Results for ost000a.map
+64-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central A* Search with Tentpole Smoothing
+Mean Path Length = 475.125796
+Mean Runtime (us) = 25553.781746
+Valid Paths = 2520
+Total Scenarios = 2520
+

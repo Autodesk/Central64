@@ -1,0 +1,128 @@
+Results for arena2.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Regular A* Search with No Smoothing
+Mean Path Length = 180.302013
+Mean Runtime (us) = 808.867033
+Valid Paths = 910
+Total Scenarios = 910
+
+Results for arena2.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Regular A* Search with Greedy Smoothing
+Mean Path Length = 174.231835
+Mean Runtime (us) = 812.597802
+Valid Paths = 910
+Total Scenarios = 910
+
+Results for arena2.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central A* Search with Greedy Smoothing
+Mean Path Length = 173.008746
+Mean Runtime (us) = 1094.481319
+Valid Paths = 910
+Total Scenarios = 910
+
+Results for arena2.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Regular A* Search with Tentpole Smoothing
+Mean Path Length = 173.277792
+Mean Runtime (us) = 810.440659
+Valid Paths = 910
+Total Scenarios = 910
+
+Results for arena2.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central A* Search with Tentpole Smoothing
+Mean Path Length = 172.906886
+Mean Runtime (us) = 1079.948352
+Valid Paths = 910
+Total Scenarios = 910
+
+Results for arena2.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Mixed A* Search with Tentpole Smoothing
+Mean Path Length = 172.906886
+Mean Runtime (us) = 1463.573626
+Valid Paths = 910
+Total Scenarios = 910
+
+Results for arena2.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Jump Point Search with Tentpole Smoothing
+Mean Path Length = 172.906886
+Mean Runtime (us) = 578.236264
+Valid Paths = 910
+Total Scenarios = 910
+
+Results for arena2.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Bounded Jump Point Search with Tentpole Smoothing
+Mean Path Length = 172.906886
+Mean Runtime (us) = 514.982418
+Valid Paths = 910
+Total Scenarios = 910
+
+Results for arena2.map
+8-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Mixed Jump Point Search with Tentpole Smoothing
+Mean Path Length = 172.906886
+Mean Runtime (us) = 652.164835
+Valid Paths = 910
+Total Scenarios = 910
+
+Results for arena2.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Regular A* Search with Tentpole Smoothing
+Mean Path Length = 172.993587
+Mean Runtime (us) = 1644.171429
+Valid Paths = 910
+Total Scenarios = 910
+
+Results for arena2.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central A* Search with Tentpole Smoothing
+Mean Path Length = 172.898235
+Mean Runtime (us) = 1825.105495
+Valid Paths = 910
+Total Scenarios = 910
+
+Results for arena2.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Mixed A* Search with Tentpole Smoothing
+Mean Path Length = 172.898235
+Mean Runtime (us) = 2905.769231
+Valid Paths = 910
+Total Scenarios = 910
+
+Results for arena2.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Jump Point Search with Tentpole Smoothing
+Mean Path Length = 172.898235
+Mean Runtime (us) = 824.143956
+Valid Paths = 910
+Total Scenarios = 910
+
+Results for arena2.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Bounded Jump Point Search with Tentpole Smoothing
+Mean Path Length = 172.898235
+Mean Runtime (us) = 657.174725
+Valid Paths = 910
+Total Scenarios = 910
+
+Results for arena2.map
+16-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central Mixed Jump Point Search with Tentpole Smoothing
+Mean Path Length = 172.898235
+Mean Runtime (us) = 885.804396
+Valid Paths = 910
+Total Scenarios = 910
+
+Results for arena2.map
+64-Neighbor Grid with Corner-Aligned Cells
+Paths produced by Central A* Search with Tentpole Smoothing
+Mean Path Length = 172.893704
+Mean Runtime (us) = 5350.310989
+Valid Paths = 910
+Total Scenarios = 910
+
