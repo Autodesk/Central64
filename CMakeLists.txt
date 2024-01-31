@@ -1,6 +1,6 @@
-#######################################
-# CMake File for the Central64 Examples
-#######################################
+#########################################################
+# CMake File for the Central64 Examples and Analysis Code
+#########################################################
 cmake_minimum_required(VERSION 3.10)
 project(Central64)
 
@@ -13,7 +13,7 @@ if(MSVC)
   string(REGEX REPLACE "/Z[iI7]" "" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
   set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /Z7 /bigobj")
 else()
-  set(WARNING_FLAGS "-Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-sign-compare -Wno-missing-braces -Wno-ignored-attributes -Wignored-qualifiers -Woverloaded-virtual -Winline")
+  set(WARNING_FLAGS "-Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-sign-compare -Wno-missing-braces -Wno-ignored-attributes -Wignored-qualifiers -Woverloaded-virtual")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -pedantic-errors -std=c++${CMAKE_CXX_STANDARD} ${WARNING_FLAGS}")
   set(CMAKE_STATIC_LINKER_FLAGS  "${CMAKE_STATIC_LINKER_FLAGS}")
 endif(MSVC)

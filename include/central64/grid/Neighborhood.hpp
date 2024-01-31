@@ -11,8 +11,7 @@ namespace central64 {
 template <int L>
 class Neighborhood
 {
-    // Permit L == 128 to allow Neighborhood<2*L>::Move to be a friend of Neighborhood<L>::Move with L == 64.
-    static_assert(L == 4 || L == 8 || L == 16 || L == 32 || L == 64 || L == 128, "Neighborhood size must be 4, 8, 16, 32, or 64.");
+    static_assert(L == 4 || L == 8 || L == 16 || L == 32 || L == 64, "Neighborhood size must be 4, 8, 16, 32, or 64.");
 
 public:
     class Move;
@@ -29,7 +28,11 @@ private:
     Neighborhood() = delete;
 
     struct MoveArray;
+    static constexpr std::array<Move, L> moves = MoveArray::data;
 };
+
+/// A specialization allowing Neighborhood<128>::Move to be a friend of Neighborhood<64>::Move.
+template <> class Neighborhood<128> { class Move; };
 
 /// A data type representing one of the `L` neighborhood moves.
 template <int L>
@@ -95,9 +98,9 @@ constexpr Neighborhood<L>::Move::Move(int index)
     else {
         // Compute the 2D offset by finding the corresponding move from the previous neighborhood (even moves),
         // or by adding the 2D offsets of the two surrounding moves from the previous neighborhood (odd moves).
-        offset_ = (index%2 == 0) ? Neighborhood<L/2>::Move(index_/2).Offset() :
-                                   Neighborhood<L/2>::Move(index_/2).Offset() +
-                                   Neighborhood<L/2>::Move(index_/2 + 1).Offset();
+        offset_ = (index%2 == 0) ? typename Neighborhood<L/2>::Move(index_/2).Offset() :
+                                   typename Neighborhood<L/2>::Move(index_/2).Offset() +
+                                   typename Neighborhood<L/2>::Move(index_/2 + 1).Offset();
         // Select the Euclidean cost at compile time from a list of precomputed square root values.
         const int distanceSquared = offset_.X()*offset_.X() + offset_.Y()*offset_.Y();
         cost_ = PathCost{ (distanceSquared ==  1) ? 1.0 :
@@ -115,9 +118,6 @@ constexpr Neighborhood<L>::Move::Move(int index)
 template <int L>
 constexpr const std::array<typename Neighborhood<L>::Move, L>& Neighborhood<L>::Moves()
 {
-    // Instantiate the moves at compile time.
-    static constexpr std::array<typename Neighborhood<L>::Move, L> moves = MoveArray::data;
-
     return moves;
 }
 

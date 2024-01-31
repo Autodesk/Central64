@@ -111,7 +111,6 @@ BenchmarkResult AnalyzeBenchmark(const std::filesystem::path& mapFilePath,
                 int validPaths = 0;
                 int totalScenarios = 0;
                 for (const auto& scen : scenarios) {
-                    auto tA = std::chrono::steady_clock::now();
                     if (totalScenarios%25 == 0) {
                         auto tA = std::chrono::steady_clock::now();
                         planner.SearchAllNodes(scen.first);

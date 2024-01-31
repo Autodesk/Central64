@@ -27,6 +27,10 @@ public:
     Offset2D Dims() const { return gridGraph_.Dims(); }     ///< Get the number of vertices in each dimension.
     CellAlignment Alignment() const { return alignment_; }  ///< Get the cell alignment.
 
+    const Array2D<bool>& CenterCells() { return centerCells_; }        ///< Obtain a const reference to the array of center-aligned cells.
+    const Array2D<bool>& CornerCells() { return cornerCells_; }        ///< Obtain a const reference to the array of corner-aligned cells.
+    const Array2D<Connections<L>>& GridGraph() { return gridGraph_; }  ///< Obtain a const reference to the array of sets of connections.
+
     bool CenterCell(Offset2D coords) const { return centerCells_[coords]; }  ///< Check whether the center-aligned cell at coordinates `coords` is obstructed.
     bool CornerCell(Offset2D coords) const { return cornerCells_[coords]; }  ///< Check whether the corner-aligned cell at coordinates `coords` is obstructed.
 

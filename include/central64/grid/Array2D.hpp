@@ -20,8 +20,8 @@ public:
 
     void Fill(const T& value);  ///< Set every element to `value`.
 
-    Offset2D Dims() const { return dims_; }                ///< Get the dimensions.
-    Offset2D Size() const { return dims_.X()*dims_.Y(); }  ///< Get the total number of elements.
+    Offset2D Dims() const { return dims_; }           ///< Get the dimensions.
+    int Size() const { return dims_.X()*dims_.Y(); }  ///< Get the total number of elements.
 
     bool Contains(Offset2D coords) const;  ///< Check whether coordinates `coords` are within the array.
 

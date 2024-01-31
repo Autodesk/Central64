@@ -32,7 +32,7 @@ public:
     constexpr const PathCost& operator-=(PathCost rhs) { *this = *this - rhs; return *this; }  ///< Subtract the path cost on the right-hand side.
     constexpr const PathCost& operator*=(int rhs) { *this = *this * rhs; return *this; }       ///< Multiply by the integer on the right-hand side.
 
-    constexpr const double operator/(PathCost rhs) const { return double(multiplier_)/double(rhs.multiplier_); }  ///< Compute the ratio between two path costs.
+    constexpr double operator/(PathCost rhs) const { return double(multiplier_)/double(rhs.multiplier_); }  ///< Compute the ratio between two path costs.
 
     constexpr bool operator==(PathCost rhs) const { return multiplier_ == rhs.multiplier_; }  ///< Check whether two path costs are equal.
     constexpr bool operator!=(PathCost rhs) const { return multiplier_ != rhs.multiplier_; }  ///< Check whether two path costs are different.

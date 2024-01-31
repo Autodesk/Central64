@@ -24,7 +24,7 @@ public:
     constexpr const PathCount& operator+=(PathCount rhs) { *this = *this + rhs; return *this; }  ///< Add the path count on the right-hand side.
     constexpr const PathCount& operator*=(PathCount rhs) { *this = *this * rhs; return *this; }  ///< Multiply by the path count on the right-hand side.
 
-    const double operator/(PathCount rhs) const { return pow(2.0, logCount_ - rhs.logCount_); }  ///< Compute the ratio between two path counts.
+    double operator/(PathCount rhs) const { return pow(2.0, logCount_ - rhs.logCount_); }  ///< Compute the ratio between two path counts.
 
     constexpr bool operator==(PathCount rhs) const { return logCount_ == rhs.logCount_; }  ///< Check whether two path counts are equal.
     constexpr bool operator!=(PathCount rhs) const { return logCount_ != rhs.logCount_; }  ///< Check whether two path counts are different.

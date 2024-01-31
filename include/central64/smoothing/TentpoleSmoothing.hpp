@@ -11,7 +11,7 @@ template <int L>
 class TentpoleSmoothing : public AbstractSmoothing<L>
 {
 public:
-    explicit TentpoleSmoothing(const Grid2D<L>& grid) : AbstractSmoothing{ grid } {}  ///< Create a tentpole smoothing object that references an existing grid object.
+    explicit TentpoleSmoothing(const Grid2D<L>& grid) : AbstractSmoothing<L>{ grid } {}  ///< Create a tentpole smoothing object that references an existing grid object.
 
     TentpoleSmoothing(TentpoleSmoothing&&) = default;             ///< Ensure the default move constructor is public.
     TentpoleSmoothing& operator=(TentpoleSmoothing&&) = default;  ///< Ensure the default move assignment operator is public.
@@ -19,6 +19,8 @@ public:
     virtual void SmoothPath(std::vector<Offset2D>& pathVertices);  ///< Perform the smoothing operation on a path represented as a vector of 2D offsets (`pathVertices`).
 
     virtual std::string MethodName() const { return "Tentpole Smoothing"; }  ///< Get the name of the smoothing method.
+
+    const Grid2D<L>& Grid() const { return AbstractSmoothing<L>::Grid(); }
 };
 
 template <int L>

@@ -3,6 +3,8 @@ import subprocess
 
 def run_analysis(mode, benchmark, mapname = None):
     executable = os.path.join("..", "build", "Release", "Central64Analysis")
+    if not os.path.exists(executable):
+        executable = os.path.join("..", "build", "Central64Analysis")
     inputpath = os.path.join("..", "benchmarks", benchmark)
     if mapname != None:
         inputpath = os.path.join(inputpath, mapname + ".map")

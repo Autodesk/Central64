@@ -26,6 +26,15 @@ public:
     std::string MethodName() const;          ///< Get the name of the search method, which depends on whether the search is bounded.
     std::string AllNodesMethodName() const;  ///< Get the name of the all-nodes version of the search method, which depends on whether the search is bounded.
 
+    const Grid2D<L>& Grid() const { return BasicSearch<L>::Grid(); }
+    bool IsAllNodesSearch() const { return BasicSearch<L>::IsAllNodesSearch(); }
+    Offset2D SourceCoords() const { return BasicSearch<L>::SourceCoords(); }
+    Offset2D SampleCoords() const { return BasicSearch<L>::SampleCoords(); }
+    bool Centralize() const { return BasicSearch<L>::Centralize(); }
+    bool FromSource() const { return BasicSearch<L>::FromSource(); }
+    PathTree<L>& Tree() const { return BasicSearch<L>::Tree(); }
+    PathFlow<L>& Flow() const { return BasicSearch<L>::Flow(); }
+
 private:
     // Process the node at coordinates `coords`, given its f-cost `fCost`.
     bool ProcessSearchNode(Offset2D coords, PathCost fCost);
@@ -36,12 +45,22 @@ private:
     // jump must be expanded.
     void Jump(Offset2D initialCoords, PathCost maxGCost, bool activeFrontier);
 
+    bool IsSearchNodeInitialized(Offset2D coords) const { return BasicSearch<L>::IsSearchNodeInitialized(coords); }
+    void InitializeDijkstraNode(Offset2D coords) { BasicSearch<L>::InitializeDijkstraNode(coords); }
+    void InitializeHeuristicNode(Offset2D coords) { BasicSearch<L>::InitializeHeuristicNode(coords); }
+    using DijkstraQueue = typename BasicSearch<L>::DijkstraQueue;
+    using HeuristicQueue = typename BasicSearch<L>::HeuristicQueue;
+    DijkstraQueue CreateDijkstraQueue() { return BasicSearch<L>::CreateDijkstraQueue(); }
+    HeuristicQueue CreateHeuristicQueue() { return BasicSearch<L>::CreateHeuristicQueue(); }
+
+    void ExpandSearchNode(Offset2D coords, Connections<L> successors) { BasicSearch<L>::ExpandSearchNode(coords, successors); }
+
     PathCost jumpCost_;
 };
 
 template <int L>
 JumpPointSearch<L>::JumpPointSearch(const Grid2D<L>& grid, PathCost jumpCost)
-    : BasicSearch{ grid }
+    : BasicSearch<L>{ grid }
     , jumpCost_{ jumpCost }
 {
 }
