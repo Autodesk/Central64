@@ -78,7 +78,7 @@ BenchmarkResult AnalyzeBenchmark(const std::filesystem::path& mapFilePath,
     if (!inputCells.empty() && !scenarios.empty()) {
         auto planner = PathPlanner<L>{ inputCells, alignment, searchMethod, smoothingMethod, centralize };
         if (scenarioIndex >= 0) {
-            if (scenarioIndex >= scenarios.size()) {
+            if (scenarioIndex >= int(scenarios.size())) {
                 printf("Warning: Scenario index %d must be less than number of scenarios (%d)\n", scenarioIndex, int(scenarios.size()));
                 printf("\n");
             }
