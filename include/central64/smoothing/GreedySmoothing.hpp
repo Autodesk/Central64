@@ -28,43 +28,44 @@ void GreedySmoothing<L>::SmoothPath(std::vector<Offset2D>& pathVertices)
 {
     // Create a vector of the path vertices to be retained.
     std::vector<Offset2D> retainedVertices{};
-
-    // Create an iterator A that advances from the first
+    
+    // Create an index A that advances from the first
     // path vertex to just beyond the final path vertex.
-    auto iterA = std::begin(pathVertices);
-    while (iterA != std::end(pathVertices)) {
-        // Retain the vertex pointed to by iterator A.
-        retainedVertices.push_back(*iterA);
+    int indexA = 0;
+    int vertexCount = int(pathVertices.size());
+    while (indexA < vertexCount) {
+        // Retain the vertex at index A.
+        retainedVertices.push_back(pathVertices[indexA]);
 
-        // If iterator A points to the final path vertex, advance it.
+        // If index A points to the final path vertex, advance it.
         // Otherwise, use line-of-sight checks to find the next vertex to retain.
-        if (iterA == std::end(pathVertices) - 1) {
-            ++iterA;
+        if (indexA == vertexCount - 1) {
+            ++indexA;
         }
         else {
-            // Create an iterator B that advances from the first position after
-            // iterator A to the first vertex for which the line of sight is broken.
-            auto iterB = iterA + 1;
-            Offset2D uniqueOffset = *iterB - *iterA;
+            // Create an index B that advances from the first position after
+            // A to the first vertex for which the line of sight is broken.
+            int indexB = indexA + 1;
+            Offset2D uniqueOffset = pathVertices[indexB] - pathVertices[indexA];
             bool lineOfSight = true;
-            while (lineOfSight && iterB != std::end(pathVertices)) {
-                // Obtain the offset between the vertex of iterator B and the preceding vertex.
-                const Offset2D offset = *iterB - *(iterB - 1);
+            while (lineOfSight && indexB < vertexCount) {
+                // Obtain the offset between the vertex of B and the preceding vertex.
+                const Offset2D offset = pathVertices[indexB] - pathVertices[indexB - 1];
 
                 // Perform the line-of-sight check only if the offsets have not all been identical.
                 if (offset != uniqueOffset) {
                     uniqueOffset = { 0, 0 };
-                    lineOfSight = Grid().LineOfSight(*iterA, *iterB);
+                    lineOfSight = Grid().LineOfSight(pathVertices[indexA], pathVertices[indexB]);
                 }
 
-                // If the line of sight is not yet broken, advance iterator B.
+                // If the line of sight is not yet broken, advance B.
                 if (lineOfSight) {
-                    ++iterB;
+                    ++indexB;
                 }
             }
 
-            // Advance iterator A to the first position before the vertex of iterator B.
-            iterA = iterB - 1;
+            // Advance A to the first position before the vertex of B.
+            indexA = indexB - 1;
         }
     }
 
