@@ -155,8 +155,8 @@ AbstractSearch<L>::AbstractSearch(const Grid2D<L>& grid)
     , centralize_{ true }
     , fromSource_{ true }
 {
-    pathTreePtr_ = std::make_unique<PathTree<L>>(grid);
-    pathFlowPtr_ = std::make_unique<PathFlow<L>>(grid, *pathTreePtr_);
+    pathTreePtr_ = std::make_unique<PathTree<L>>(grid_);
+    pathFlowPtr_ = std::make_unique<PathFlow<L>>(grid_, *pathTreePtr_);
 }
 
 }  // namespace

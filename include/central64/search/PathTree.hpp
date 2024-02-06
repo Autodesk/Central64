@@ -78,7 +78,7 @@ private:
 
 template <int L>
 PathTree<L>::PathTree(const Grid2D<L>& grid)
-    : gridPtr_{&grid}
+    : gridPtr_{ &grid }
     , nodes_{ grid.Dims() }
     , currentSearchID_{ 0 }
     , sourceCoords_{ InvalidCoords() }
