@@ -31,13 +31,13 @@ void TentpoleSmoothing<L>::SmoothPath(std::vector<Offset2D>& pathVertices)
 
     // Smooth the path only if it is not empty.
     if (!pathVertices.empty()) {
-        // Create an iterator A that advances from the first path vertex to the
-        // final path vertex, and an iterator C that remains ahead of iterator A.
+        // Create an index A that advances from the first path vertex to the
+        // final path vertex, and an index C that remains ahead of A.
         int indexA = 0;
         int indexC = indexA + 1;
         int vertexCount = int(pathVertices.size());
         while (indexA < vertexCount) {
-            // Retain the vertex pointed to by iterator A.
+            // Retain the vertex at index A.
             retainedVertices.push_back(pathVertices[indexA]);
 
             // If index A points to the final path vertex, advance it.
@@ -46,7 +46,7 @@ void TentpoleSmoothing<L>::SmoothPath(std::vector<Offset2D>& pathVertices)
                 ++indexA;
             }
             else {
-                // Determine if these is a single offset for all moves between A and C.
+                // Determine if there is a single offset for all moves between A and C.
                 Offset2D uniqueOffset = pathVertices[indexA + 1] - pathVertices[indexA];
                 for (int indexB = indexA + 1; indexB < indexC; ++indexB) {
                     const Offset2D offset = pathVertices[indexB] - pathVertices[indexB - 1];
@@ -101,7 +101,7 @@ void TentpoleSmoothing<L>::SmoothPath(std::vector<Offset2D>& pathVertices)
                         }
 
                         // If the line of sight is not yet broken, the (1) check whether the new tentpole
-                        // location produces the shortest path so far, and (2) move iterator B backward.
+                        // location produces the shortest path so far, and (2) move B backward.
                         if (lineOfSight) {
                             Offset2D offsetAB = pathVertices[indexB] - pathVertices[indexA];
                             Offset2D offsetBC = pathVertices[indexC] - pathVertices[indexB];
