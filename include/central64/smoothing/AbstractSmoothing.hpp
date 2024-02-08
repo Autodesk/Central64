@@ -13,7 +13,7 @@ class AbstractSmoothing
 public:
     virtual ~AbstractSmoothing() = default;  ///< Ensure the destructor is virtual, since the class is to be inherited.
 
-    const Grid2D<L>& Grid() { return grid_; }  ///< Obtain a const reference to the grid.
+    const Grid2D<L>& Grid() const { return grid_; }  ///< Obtain a const reference to the grid.
 
     virtual void SmoothPath(std::vector<Offset2D>& pathVertices) = 0;  ///< Perform the smoothing operation on a path represented as a vector of 2D offsets (`pathVertices`).
 

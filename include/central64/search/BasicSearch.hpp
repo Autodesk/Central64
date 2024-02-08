@@ -13,6 +13,15 @@ class BasicSearch : public AbstractSearch<L>
 public:
     virtual ~BasicSearch() = default;  ///< Ensure the destructor is virtual, since the class is to be inherited.
 
+    const Grid2D<L>& Grid() const { return AbstractSearch<L>::Grid(); }
+    bool IsAllNodesSearch() const { return AbstractSearch<L>::IsAllNodesSearch(); }
+    Offset2D SourceCoords() const { return AbstractSearch<L>::SourceCoords(); }
+    Offset2D SampleCoords() const { return AbstractSearch<L>::SampleCoords(); }
+    bool Centralize() const { return AbstractSearch<L>::Centralize(); }
+    bool FromSource() const { return AbstractSearch<L>::FromSource(); }
+    PathTree<L>& Tree() const { return AbstractSearch<L>::Tree(); }
+    PathFlow<L>& Flow() const { return AbstractSearch<L>::Flow(); }
+
 protected:
     explicit BasicSearch(const Grid2D<L>& grid);  ///< Create a basic search object that references an existing grid object.
 
@@ -21,9 +30,17 @@ protected:
 
     void PerformSearch();  ///< Perform the current path search, populating the shortest grid path tree.
 
+    virtual bool ProcessSearchNode(Offset2D coords, PathCost fCost) = 0;  ///< Process the node at coordinates `coords`, given its f-cost `fCost`.
+
     void ExpandSearchNode(Offset2D coords, Connections<L> successors);  ///< Expand the node at coordinates `coords` according to the set of `successors`.
 
-    virtual bool ProcessSearchNode(Offset2D coords, PathCost fCost) = 0;  ///< Process the node at coordinates `coords`, given its f-cost `fCost`.
+    bool IsSearchNodeInitialized(Offset2D coords) const { return AbstractSearch<L>::IsSearchNodeInitialized(coords); }
+    void InitializeDijkstraNode(Offset2D coords) { AbstractSearch<L>::InitializeDijkstraNode(coords); }
+    void InitializeHeuristicNode(Offset2D coords) { AbstractSearch<L>::InitializeHeuristicNode(coords); }
+    using DijkstraQueue = typename AbstractSearch<L>::DijkstraQueue;
+    using HeuristicQueue = typename AbstractSearch<L>::HeuristicQueue;
+    DijkstraQueue CreateDijkstraQueue() { return AbstractSearch<L>::CreateDijkstraQueue(); }
+    HeuristicQueue CreateHeuristicQueue() { return AbstractSearch<L>::CreateHeuristicQueue(); }
 
 private:
     HeuristicQueue queue_;
@@ -31,7 +48,7 @@ private:
 
 template <int L>
 BasicSearch<L>::BasicSearch(const Grid2D<L>& grid)
-    : AbstractSearch{ grid }
+    : AbstractSearch<L>{ grid }
     , queue_{ CreateHeuristicQueue() }
 {
 }

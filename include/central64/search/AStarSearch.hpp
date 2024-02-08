@@ -11,7 +11,7 @@ template <int L>
 class AStarSearch : public BasicSearch<L>
 {
 public:
-    explicit AStarSearch(const Grid2D<L>& grid) : BasicSearch{ grid } {}  ///< Create an A* search object that references an existing grid object.
+    explicit AStarSearch(const Grid2D<L>& grid) : BasicSearch<L>{ grid } {}  ///< Create an A* search object that references an existing grid object.
 
     AStarSearch(AStarSearch&&) = default;             ///< Ensure the default move constructor is public.
     AStarSearch& operator=(AStarSearch&&) = default;  ///< Ensure the default move assignment operator is public.
@@ -19,9 +19,28 @@ public:
     std::string MethodName() const { return "A* Search"; }                ///< Get the name of the search method.
     std::string AllNodesMethodName() const { return "Dijkstra Search"; }  ///< Get the name of the all-nodes version of the search method.
 
+    const Grid2D<L>& Grid() const { return BasicSearch<L>::Grid(); }
+    bool IsAllNodesSearch() const { return BasicSearch<L>::IsAllNodesSearch(); }
+    Offset2D SourceCoords() const { return BasicSearch<L>::SourceCoords(); }
+    Offset2D SampleCoords() const { return BasicSearch<L>::SampleCoords(); }
+    bool Centralize() const { return BasicSearch<L>::Centralize(); }
+    bool FromSource() const { return BasicSearch<L>::FromSource(); }
+    PathTree<L>& Tree() const { return BasicSearch<L>::Tree(); }
+    PathFlow<L>& Flow() const { return BasicSearch<L>::Flow(); }
+
 private:
     // Process the node at coordinates `coords`, given its f-cost `fCost`.
     bool ProcessSearchNode(Offset2D coords, PathCost fCost);
+
+    bool IsSearchNodeInitialized(Offset2D coords) const { return BasicSearch<L>::IsSearchNodeInitialized(coords); }
+    void InitializeDijkstraNode(Offset2D coords) { BasicSearch<L>::InitializeDijkstraNode(coords); }
+    void InitializeHeuristicNode(Offset2D coords) { BasicSearch<L>::InitializeHeuristicNode(coords); }
+    using DijkstraQueue = typename BasicSearch<L>::DijkstraQueue;
+    using HeuristicQueue = typename BasicSearch<L>::HeuristicQueue;
+    DijkstraQueue CreateDijkstraQueue() { return BasicSearch<L>::CreateDijkstraQueue(); }
+    HeuristicQueue CreateHeuristicQueue() { return BasicSearch<L>::CreateHeuristicQueue(); }
+
+    void ExpandSearchNode(Offset2D coords, Connections<L> successors) { BasicSearch<L>::ExpandSearchNode(coords, successors); }
 };
 
 template <int L>

@@ -19,17 +19,28 @@ class MixedSearch : public AbstractSearch<L>
 public:
     virtual ~MixedSearch() = default;  ///< Ensure the destructor is virtual, since the class is to be inherited.
 
+    const Grid2D<L>& Grid() const { return AbstractSearch<L>::Grid(); }
+    bool IsAllNodesSearch() const { return AbstractSearch<L>::IsAllNodesSearch(); }
+    Offset2D SourceCoords() const { return AbstractSearch<L>::SourceCoords(); }
+    Offset2D SampleCoords() const { return AbstractSearch<L>::SampleCoords(); }
+    bool Centralize() const { return AbstractSearch<L>::Centralize(); }
+    bool FromSource() const { return AbstractSearch<L>::FromSource(); }
+    PathTree<L>& Tree() const { return AbstractSearch<L>::Tree(); }
+    PathFlow<L>& Flow() const { return AbstractSearch<L>::Flow(); }
+
 protected:
     explicit MixedSearch(const Grid2D<L>& grid);  ///< Create a mixed search object that references an existing grid object.
 
     MixedSearch(MixedSearch&&) = default;             ///< Ensure the default move constructor is protected because the class is to be inherited.
     MixedSearch& operator=(MixedSearch&&) = default;  ///< Ensure the default move assignment operator is protected because the class is to be inherited.
 
-    bool IsSearchBlockInitialized(Offset2D compressedCoords) const;  ///< Check whether the block at compressed coordinates `compressedCoords` has been initialized.
-    void InitializeSearchBlock(Offset2D compressedCoords);           ///< Initialize the block at compressed coordinates `compressedCoords`.
-
     void PerformSearch();                                ///< Perform the current path search, populating the shortest grid path tree.
     void ProcessSearchBlock(Offset2D compressedCoords);  ///< Process the block at compressed coordinates `compressedCoords`.
+
+    virtual void ProcessSearchNode(Offset2D coords) = 0;  ///< Process the node at coordinates `coords`.
+
+    bool IsSearchBlockInitialized(Offset2D compressedCoords) const;  ///< Check whether the block at compressed coordinates `compressedCoords` has been initialized.
+    void InitializeSearchBlock(Offset2D compressedCoords);           ///< Initialize the block at compressed coordinates `compressedCoords`.
 
     void ExpandSearchNode(Offset2D coords, Connections<L> successors);  ///< Expand the node at coordinates `coords` according to the set of `successors`.
     void UpdateBorderNode(Offset2D coords);                             ///< Update the search based on the cost of the border node at coordinates `coords`.
@@ -39,7 +50,13 @@ protected:
     Offset2D CompressCoords(Offset2D coords) const;              ///< Obtain the compressed coordinates of the block that contains the coordinates `coords`.
     Offset2D DecompressCoords(Offset2D compressedCoords) const;  ///< Obtain the coordinates of the node at the lower corner of the block at compressed coordinates `compressedCoords`.
 
-    virtual void ProcessSearchNode(Offset2D coords) = 0;  ///< Process the node at coordinates `coords`.
+    bool IsSearchNodeInitialized(Offset2D coords) const { return AbstractSearch<L>::IsSearchNodeInitialized(coords); }
+    void InitializeDijkstraNode(Offset2D coords) { AbstractSearch<L>::InitializeDijkstraNode(coords); }
+    void InitializeHeuristicNode(Offset2D coords) { AbstractSearch<L>::InitializeHeuristicNode(coords); }
+    using DijkstraQueue = typename AbstractSearch<L>::DijkstraQueue;
+    using HeuristicQueue = typename AbstractSearch<L>::HeuristicQueue;
+    DijkstraQueue CreateDijkstraQueue() { return AbstractSearch<L>::CreateDijkstraQueue(); }
+    HeuristicQueue CreateHeuristicQueue() { return AbstractSearch<L>::CreateHeuristicQueue(); }
 
 private:
     static constexpr int innerBits = M - 1;                                      // The set of bits that identify nodes within blocks.
@@ -56,7 +73,7 @@ private:
 
 template <int L, int M>
 MixedSearch<L, M>::MixedSearch(const Grid2D<L>& grid)
-    : AbstractSearch{ grid }
+    : AbstractSearch<L>{ grid }
     , compressedDims_{ std::max(0, Grid().Dims().X() - 1)/M + 1, std::max(0, Grid().Dims().Y() - 1)/M + 1 }
     , outerQueue_{ CreateHeuristicQueue() }
     , outerFCosts_{ compressedDims_ }

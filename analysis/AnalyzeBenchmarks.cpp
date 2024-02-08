@@ -78,7 +78,7 @@ BenchmarkResult AnalyzeBenchmark(const std::filesystem::path& mapFilePath,
     if (!inputCells.empty() && !scenarios.empty()) {
         auto planner = PathPlanner<L>{ inputCells, alignment, searchMethod, smoothingMethod, centralize };
         if (scenarioIndex >= 0) {
-            if (scenarioIndex >= scenarios.size()) {
+            if (scenarioIndex >= int(scenarios.size())) {
                 printf("Warning: Scenario index %d must be less than number of scenarios (%d)\n", scenarioIndex, int(scenarios.size()));
                 printf("\n");
             }
@@ -111,7 +111,6 @@ BenchmarkResult AnalyzeBenchmark(const std::filesystem::path& mapFilePath,
                 int validPaths = 0;
                 int totalScenarios = 0;
                 for (const auto& scen : scenarios) {
-                    auto tA = std::chrono::steady_clock::now();
                     if (totalScenarios%25 == 0) {
                         auto tA = std::chrono::steady_clock::now();
                         planner.SearchAllNodes(scen.first);

@@ -14,8 +14,6 @@ class AbstractSearch
 public:
     virtual ~AbstractSearch() = default;  ///< Ensure the destructor is virtual, since the class is to be inherited.
 
-    const Grid2D<L>& Grid() const { return grid_; }  ///< Obtain a const reference to the grid.
-
     /// Compute a path between source coordinates `sourceCoords` and sample coordinates `sampleCoords`.
     /// If `centralize` is true, then compute a central grid path; otherwise compute a regular grid path.
     /// If `fromSource` is true, then arrange the path from source to sample; otherwise from sample to source.
@@ -37,6 +35,8 @@ public:
                                          bool centralize = true,
                                          bool fromSource = true);
 
+    const Grid2D<L>& Grid() const { return grid_; }  ///< Obtain a const reference to the grid.
+
     bool IsAllNodesSearch() const { return Tree().IsAllNodesSearch(); }  ///< Check if the current search is an all-nodes (e.g. Dijkstra) search.
 
     Offset2D SourceCoords() const { return Tree().SourceCoords(); }  ///< Get the coordinates of the current source vertex, the root of the shortest grid path tree.
@@ -57,6 +57,8 @@ protected:
     AbstractSearch(AbstractSearch&&) = default;             ///< Ensure the default move constructor is protected because the class is to be inherited.
     AbstractSearch& operator=(AbstractSearch&&) = default;  ///< Ensure the default move assignment operator is protected because the class is to be inherited.
 
+    virtual void PerformSearch() = 0;  ///< Perform the current path search, populating the shortest grid path tree.
+
     bool IsSearchNodeInitialized(Offset2D coords) const { return Tree().IsSearchNodeInitialized(coords); }  ///< Check whether the node at coordinates `coords` has been initialized for the current search.
 
     void InitializeDijkstraNode(Offset2D coords) { Tree().InitializeDijkstraNode(coords); }    ///< Initialize the node at coordinates `coords` for the current search, without computing the heuristic.
@@ -67,8 +69,6 @@ protected:
 
     DijkstraQueue CreateDijkstraQueue() { return Tree().CreateDijkstraQueue(); }     ///< Create a Dijkstra queue associated with this path tree.
     HeuristicQueue CreateHeuristicQueue() { return Tree().CreateHeuristicQueue(); }  ///< Create a heuristic queue associated with this path tree.
-
-    virtual void PerformSearch() = 0;  ///< Perform the current path search, populating the shortest grid path tree.
 
 private:
     AbstractSearch(const AbstractSearch&) = delete;
@@ -155,8 +155,8 @@ AbstractSearch<L>::AbstractSearch(const Grid2D<L>& grid)
     , centralize_{ true }
     , fromSource_{ true }
 {
-    pathTreePtr_ = std::make_unique<PathTree<L>>(grid);
-    pathFlowPtr_ = std::make_unique<PathFlow<L>>(grid, *pathTreePtr_);
+    pathTreePtr_ = std::make_unique<PathTree<L>>(grid_);
+    pathFlowPtr_ = std::make_unique<PathFlow<L>>(grid_, *pathTreePtr_);
 }
 
 }  // namespace

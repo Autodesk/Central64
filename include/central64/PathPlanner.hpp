@@ -49,7 +49,7 @@ public:
 
     int NeighborhoodSize() const { return L; }  ///< Get the neighborhood size.
 
-    const Grid2D<L>& Grid() const { return grid_; }               ///< Obtain a const reference to the grid.
+    const Grid2D<L>& Grid() const { return searchPtr_->Grid(); }  ///< Obtain a const reference to the grid.
     AbstractSearch<L>& Search() { return *searchPtr_; }           ///< Obtain a reference to the path search object.
     AbstractSmoothing<L>& Smoothing() { return *smoothingPtr_; }  ///< Obtain a reference to the path smoothing object.
 
@@ -72,7 +72,6 @@ private:
     PathPlanner(const PathPlanner&) = delete;
     PathPlanner& operator=(const PathPlanner&) = delete;
 
-    Grid2D<L> grid_;
     std::unique_ptr<AbstractSearch<L>> searchPtr_{};
     std::unique_ptr<AbstractSmoothing<L>> smoothingPtr_{};
     bool centralize_;
@@ -86,21 +85,21 @@ PathPlanner<L>::PathPlanner(const std::vector<std::vector<bool>>& inputCells,
                             SmoothingMethod smoothingMethod,
                             bool centralize,
                             bool fromSource)
-    : grid_{ inputCells, alignment }
-    , centralize_{ centralize }
+    : centralize_{ centralize }
     , fromSource_{ fromSource }
 {
+    Grid2D<L> grid{ inputCells, alignment };
     switch (searchMethod) {
-    case SearchMethod::AStar:            searchPtr_ = std::make_unique<         AStarSearch<L>>(grid_);              break;
-    case SearchMethod::JumpPoint:        searchPtr_ = std::make_unique<     JumpPointSearch<L>>(grid_);              break;
-    case SearchMethod::BoundedJumpPoint: searchPtr_ = std::make_unique<     JumpPointSearch<L>>(grid_, PathCost(8)); break;
-    case SearchMethod::MixedAStar:       searchPtr_ = std::make_unique<    MixedAStarSearch<L>>(grid_);              break;
-    case SearchMethod::MixedJumpPoint:   searchPtr_ = std::make_unique<MixedJumpPointSearch<L>>(grid_);              break;
+    case SearchMethod::AStar:            searchPtr_ = std::make_unique<         AStarSearch<L>>(grid);              break;
+    case SearchMethod::JumpPoint:        searchPtr_ = std::make_unique<     JumpPointSearch<L>>(grid);              break;
+    case SearchMethod::BoundedJumpPoint: searchPtr_ = std::make_unique<     JumpPointSearch<L>>(grid, PathCost(8)); break;
+    case SearchMethod::MixedAStar:       searchPtr_ = std::make_unique<    MixedAStarSearch<L>>(grid);              break;
+    case SearchMethod::MixedJumpPoint:   searchPtr_ = std::make_unique<MixedJumpPointSearch<L>>(grid);              break;
     }
     switch (smoothingMethod) {
-    case SmoothingMethod::No:       smoothingPtr_ = std::make_unique<      NoSmoothing<L>>(grid_); break;
-    case SmoothingMethod::Greedy:   smoothingPtr_ = std::make_unique<  GreedySmoothing<L>>(grid_); break;
-    case SmoothingMethod::Tentpole: smoothingPtr_ = std::make_unique<TentpoleSmoothing<L>>(grid_); break;
+    case SmoothingMethod::No:       smoothingPtr_ = std::make_unique<      NoSmoothing<L>>(grid); break;
+    case SmoothingMethod::Greedy:   smoothingPtr_ = std::make_unique<  GreedySmoothing<L>>(grid); break;
+    case SmoothingMethod::Tentpole: smoothingPtr_ = std::make_unique<TentpoleSmoothing<L>>(grid); break;
     }
     assert(searchPtr_);
     assert(smoothingPtr_);

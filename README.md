@@ -20,7 +20,7 @@ The Central64 library is intended to be fast and flexible. All combinations of t
 - *Search Method:* Choose between **A\* Search**, **Jump Point Search**, **Bounded Jump Point Search**, **Mixed A\***, and **Mixed Jump Point Search**.
 - *Smoothing Method:* Choose between **No Smoothing**, **Greedy Smoothing**, and **Tentpole Smoothing**.
 
-The library was also designed to support an empirical comparison of these path planning techniques. Based on the results of the study, **16-Neighbor Bounded Jump Point Search with Tentpole Smoothing** is recommended as the combined method that provides the best overall balance of quality and speed. See the [Central64 Technical Report](report/00-index.md) ([PDF](report/central64-technical-report.pdf)) for details.
+The library was also designed to support an empirical comparison of these path planning techniques. Based on the results of the study, **16-Neighbor Central Bounded Jump Point Search with Tentpole Smoothing** is recommended as the combined method that provides the best overall balance of quality and speed. See the [Central64 Technical Report](report/00-index.md) ([PDF](report/central64-technical-report.pdf)) for details.
 
 ## How to Use
 
@@ -199,7 +199,9 @@ The following instructions regenerate the PDF version of the report using Visual
 
 ### Build Instructions
 
-Building the Central64 project is necessary only to run the examples or analyze the various methods. Otherwise, simply include the header files in your project as outlined in the [How to Use](#how-to-use) section. Below are instructions for building the examples and analysis code using CMake and Visual Studio 2019:
+Building the Central64 project is necessary only to run the examples or analyze the various methods. Otherwise, simply include the header files in your project as outlined in the [How to Use](#how-to-use) section. 
+
+Below are instructions for building the examples and analysis code using [CMake](https://cmake.org/) and Visual Studio 2019:
 
 * Open a command prompt and go to the root directory of the project.
 * `mkdir build`
@@ -208,6 +210,15 @@ Building the Central64 project is necessary only to run the examples or analyze 
 * Open "Central64.sln".
 * Build the solution.
 * Run `Debug/Central64Examples.exe` or `Release/Central64Examples.exe` to test. The output should match [results/examples.txt](results/examples.txt).
+
+Below are instructions for building the examples and analysis code using [CMake](https://cmake.org/), [Make](https://www.gnu.org/software/make/), and GCC (using 64-bit [TDM-GCC](https://jmeubank.github.io/tdm-gcc/)) on Windows:
+
+* Open a command prompt and go to the root directory of the project.
+* `mkdir build`
+* `cd build`
+* `cmake -G "MinGW Makefiles" ..`
+* `make`
+* Run `Central64Examples.exe` to test. The output should match [results/examples.txt](results/examples.txt).
 
 ### Analysis Instructions
 

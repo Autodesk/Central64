@@ -27,6 +27,10 @@ public:
     Offset2D Dims() const { return gridGraph_.Dims(); }     ///< Get the number of vertices in each dimension.
     CellAlignment Alignment() const { return alignment_; }  ///< Get the cell alignment.
 
+    const Array2D<bool>& CenterCells() { return centerCells_; }        ///< Obtain a const reference to the array of center-aligned cells.
+    const Array2D<bool>& CornerCells() { return cornerCells_; }        ///< Obtain a const reference to the array of corner-aligned cells.
+    const Array2D<Connections<L>>& GridGraph() { return gridGraph_; }  ///< Obtain a const reference to the array of sets of connections.
+
     bool CenterCell(Offset2D coords) const { return centerCells_[coords]; }  ///< Check whether the center-aligned cell at coordinates `coords` is obstructed.
     bool CornerCell(Offset2D coords) const { return cornerCells_[coords]; }  ///< Check whether the corner-aligned cell at coordinates `coords` is obstructed.
 
@@ -74,7 +78,7 @@ Grid2D<L>::Grid2D(const std::vector<std::vector<bool>>& inputCells,
         // Store the centered-aligned grid cells.
         centerCells_ = Array2D<bool>{ {nx, ny}, false };
         for (int y = 0; y < ny; ++y) {
-            assert(inputCells[y].size() == nx);
+            assert(int(inputCells[y].size()) == nx);
             for (int x = 0; x < nx; ++x) {
                 centerCells_[{x, y}] = inputCells[y][x];
             }
@@ -104,7 +108,7 @@ Grid2D<L>::Grid2D(const std::vector<std::vector<bool>>& inputCells,
         centerCells_ = Array2D<bool>{ {nx, ny}, true };
         cornerCells_ = Array2D<bool>{ {nx - 1, ny - 1}, false };
         for (int y = 0; y < ny - 1; ++y) {
-            assert(inputCells[y].size() == nx - 1);
+            assert(int(inputCells[y].size()) == nx - 1);
             for (int x = 0; x < nx - 1; ++x) {
                 cornerCells_[{x, y}] = inputCells[y][x];
                 centerCells_[{x, y}] = centerCells_[{x, y}] && inputCells[y][x];
@@ -327,7 +331,8 @@ inline std::string ToString(const Grid2D<L>& grid, const std::vector<Offset2D>& 
     // Each path vertex is assigned the last digit of its index.
     // All grid vertices that are not part of the path are set to -1.
     Array2D<int> path2D{ grid.Dims(), -1 };
-    for (int i = 0; i < pathVertices.size(); ++i) {
+    int vertexCount = int(pathVertices.size());
+    for (int i = 0; i < vertexCount; ++i) {
         path2D[pathVertices[i]] = i%10;
     }
 

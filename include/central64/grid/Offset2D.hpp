@@ -71,7 +71,8 @@ inline std::string ToString(const std::vector<Offset2D>& pathVertices,
                             std::string vertexDelimiter = ", ")
 {
     std::string pathString{};
-    for (int i = 0; i < pathVertices.size(); ++i) {
+    int vertexCount = int(pathVertices.size());
+    for (int i = 0; i < vertexCount; ++i) {
         if (i > 0) {
             pathString += vertexDelimiter;
         }
@@ -88,7 +89,8 @@ inline double PathLength(const std::vector<Offset2D>& pathVertices)
         pathLength = std::numeric_limits<double>::infinity();
     }
     else {
-        for (int i = 0; i < pathVertices.size() - 1; ++i) {
+        int vertexCount = int(pathVertices.size());
+        for (int i = 0; i < vertexCount - 1; ++i) {
             const Offset2D offset = pathVertices[i + 1] - pathVertices[i];
             pathLength += sqrt(offset.X()*offset.X() + offset.Y()*offset.Y());
         }

@@ -11,6 +11,7 @@
 #include <string>
 #include <charconv>
 #include <memory>
+#include <algorithm>
 
 namespace central64 {
 
