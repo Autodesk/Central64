@@ -11,7 +11,7 @@ template <int L>
 class Connections
 {
 public:
-    constexpr Connections() = default;  ///< Create a set of connections for which all moves are connected.
+    constexpr Connections() = default;  ///< Create a set of connections for which no moves are connected.
 
     constexpr bool IsConnected(const Move<L>& move) const { return bool(flags_ & (Unsigned<L>::unit << move.Index())); }  ///< Check whether the specified `move` is connected.
     constexpr bool IsAllConnected() const { return bool(flags_ == Unsigned<L>::max); }                                    ///< Check whether all moves are connected.
