@@ -56,7 +56,7 @@ Array2D<T>::Array2D(Offset2D dims, const T& value)
 template <typename T>
 void Array2D<T>::Fill(const T& value)
 {
-    data_.assign(std::begin(data_), std::end(data_), value);
+    data_.assign(dims_.X()*dims_.Y(), value);
 }
 
 template <typename T>
