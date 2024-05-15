@@ -65,7 +65,7 @@ private:
         uint64_t searchID{ 0 };     // The ID of the search for which the node was last initialized.
         PathCost gCost{};           // The grid-based distance to the source.
         PathCost hCost{};           // The heuristic or estimated distance to the sample.
-        int64_t parentMoveIndex{};  // The index of the parent move.
+        int parentMoveIndex{};      // The index of the parent move.
     };
 
     const Grid2D<L>* gridPtr_;
