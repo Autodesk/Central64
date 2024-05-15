@@ -76,7 +76,7 @@ inline std::string ToString(const std::vector<Offset2D>& pathVertices,
         if (i > 0) {
             pathString += vertexDelimiter;
         }
-        pathString += ToString(pathVertices[i]);
+        pathString += ToString(pathVertices[i], leftBracket, rightBracket, coordDelimiter);
     }
     return pathString;
 }

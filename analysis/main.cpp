@@ -3,7 +3,7 @@
 
 void usage()
 {
-    printf("Usage: Central64Analysis <mode> <scope> <filepath> [scenario]\n");
+    printf("Usage: Central64Analysis <mode> <scope> <filepath> [<scenario>]\n");
     printf("\n");
     printf("The <mode> must be one of the following:\n");
     printf("   heuristic  Plan one path for each benchmark scenario.\n");
@@ -14,6 +14,12 @@ void usage()
     printf("The <scope> must be one of the following:\n");
     printf("   partial    Compare a selected set of path planning methods.\n");
     printf("   complete   Compare a comprehensive set of path planning methods.\n");
+    printf("\n");
+    printf("The <filepath> is the path to the map file. For example:\n");
+    printf("    ../benchmarks/dao/arena.map\n");
+    printf("\n");
+    printf("The <scenario> is the 0-based index of the scenario to be solved.\n");
+    printf("    If not provided, all scenarios are solved.\n");
 }
 
 int main(int argc, char* argv[])
