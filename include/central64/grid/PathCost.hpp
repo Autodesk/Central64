@@ -62,10 +62,9 @@ constexpr PathCost::PathCost(double distance)
 }
 
 constexpr PathCost::PathCost(int64_t multiplier, int)
-    : multiplier_{ (multiplier >= 0) ? (multiplier >= max)  ? max :
-                                                              int64_t(multiplier + 0.5) :
-                                       (multiplier <= -max) ? -max :
-                                                              -int64_t(-multiplier + 0.5) }
+    : multiplier_{ (multiplier >= max)  ? max :
+                   (multiplier <= -max) ? -max :
+                                          multiplier }
 {
 }
 
